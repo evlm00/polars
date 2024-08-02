@@ -66,7 +66,7 @@ pub fn utf8_to_binary<O: Offset>(from: &Utf8Array<O>, to_dtype: ArrowDataType) -
 
 // Different types to test the overflow path.
 #[cfg(not(test))]
-type OffsetType = u32;
+type OffsetType = i32;
 
 // To trigger overflow
 #[cfg(test)]
