@@ -56,11 +56,7 @@ unsafe fn aligned_array<T: Element + NativeType>(
 ///   - For PyPy: Reference counters for a live PyPy object = refcnt + 2 << 60.
 fn get_refcnt<T>(pyarray: &Bound<'_, PyArray1<T>>) -> isize {
     let refcnt = pyarray.get_refcnt();
-    if refcnt >= (2 << 60) {
-        refcnt - (2 << 60)
-    } else {
-        refcnt
-    }
+    refcnt
 }
 
 macro_rules! impl_ufuncs {
